@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+    <StackLayout Padding="40" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+
+    </StackLayout>
+</ContentPage.Content>
+</ContentPage>

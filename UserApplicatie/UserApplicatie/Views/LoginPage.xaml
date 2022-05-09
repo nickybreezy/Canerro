@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="UserApplicatie.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                <Image Source="CanerroLogo2.png" VerticalOptions="Center" HeightRequest="200" />
+            </ContentView>
+
+            <Entry x:Name="txtUsername" Placeholder="Username" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+
+            <StackLayout  Orientation="Horizontal">
+                <CheckBox IsChecked="False" Color="#668E39" />
+                <Label Text="Remember me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                <Label Text="Forgot Password" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            </StackLayout>
+
+            <Button    
+                VerticalOptions="Center"
+                Text="Login"
+                TextColor="Gray"
+                BackgroundColor="#F6FF97"
+                BorderWidth="1.5"
+                CornerRadius="30"
+                Margin="15"
+                Clicked="Button_Clicked"
+            ></Button>
+
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Nog geen account? " TextColor="Gray"/>
+                        <Span Text="Maak account" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline"/>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

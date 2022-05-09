@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UserApplicatie.RegisterPage"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <Image Source="CanerroLogo2.png" WidthRequest="180" HeightRequest="50" HorizontalOptions="End" VerticalOptions="Start"></Image>
+            <Image Source="CanerroLogo2.png" WidthRequest="180" HeightRequest="70" HorizontalOptions="End" VerticalOptions="Start" Opacity="0"></Image>
+
+            <Label Text="Register" TextColor="DarkSlateGray" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="10"/>
+            
+            <Entry x:Name="txtName" Placeholder="Name" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+            <Entry x:Name="txtLastname" Placeholder="Last name" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+            <Entry x:Name="txtEmail" Placeholder="Email" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+            <Entry x:Name="txtRepeatPassword" Placeholder="Repeat Password" IsPassword="True" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
+
+            <Button    
+                VerticalOptions="Center"
+                Text="Register"
+                TextColor="Gray"
+                BackgroundColor="#F6FF97"
+                BorderWidth="1.5"
+                CornerRadius="30"
+                Margin="25"
+                Clicked="Button_Clicked2"
+            ></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
