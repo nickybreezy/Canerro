@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Firebase.Database;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,9 @@ namespace UserApplicatie.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
+        FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
+
         public LoginPage()
         {
             InitializeComponent();
@@ -22,17 +27,36 @@ namespace UserApplicatie.Views
         {
             Navigation.PushAsync(new RegisterPage());
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
+        public void readDatabase()
         {
-            if(txtUsername.Text =="Tim" && txtPassword.Text =="test")
-            {
-                Navigation.PushAsync(new AboutPage());
-            }
-            else
+            BindingContext = this;
+            var collection = firebaseClient
+                .Child("Data_users")
+                .AsObservable<myDatabaseRecord>()
+                .Subscribe((dbevent) =>
+                {
+                    if (dbevent.Object != null)
+                    {
+                        DatabaseItems.Add(dbevent.Object);
+                    }
+                });
+        }
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            int itemsInDatabase = DatabaseItems.Count();
+            
+            if (RegisterPage.loginInfo.Contains("h"))
             {
                 DisplayAlert("Inloggen mislukt", "Username of Password is incorrect", "Ok");
             }
+            //if (txtUsername.Text == "Tim" && txtPassword.Text == "test")
+            //{
+            //    Navigation.PushAsync(new AboutPage());
+            //}
+            //else
+            //{
+            //    DisplayAlert("Inloggen mislukt", "Username of Password is incorrect", "Ok");
+            //}
         }
     }
 }

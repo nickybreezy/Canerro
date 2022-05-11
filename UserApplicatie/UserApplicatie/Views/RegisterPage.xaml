@@ -6,10 +6,13 @@
     
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
-
-            <Image Source="CanerroLogo2.png" WidthRequest="180" HeightRequest="50" HorizontalOptions="End" VerticalOptions="Start"></Image>
-            <Image Source="CanerroLogo2.png" WidthRequest="180" HeightRequest="70" HorizontalOptions="End" VerticalOptions="Start" Opacity="0"></Image>
-
+            <Image Source="CanerroLogo2.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                Tapped="OnImageNameTapped"
+                NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
             <Label Text="Register" TextColor="DarkSlateGray" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="10"/>
             
             <Entry x:Name="txtName" Placeholder="Name" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>

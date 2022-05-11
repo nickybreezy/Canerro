@@ -1,0 +1,1 @@
+https://prullenbak-database-default-rtdb.firebaseio.com/
