@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 namespace UserApplicatie
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
+    //nicky was hiierr
     public partial class RegisterPage : ContentPage
     {
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
