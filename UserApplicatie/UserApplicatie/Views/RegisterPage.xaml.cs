@@ -30,6 +30,7 @@ namespace UserApplicatie
         {
             Navigation.PushAsync(new LoginPage());
         }
+        // michel
         private void Button_Clicked2(object sender, EventArgs e)
         {
             string infoLogin = txtName.Text;
