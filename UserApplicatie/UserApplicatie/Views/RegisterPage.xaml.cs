@@ -30,7 +30,7 @@ namespace UserApplicatie
         }
         private void Button_Clicked2(object sender, EventArgs e)
         {
-            string infoLogin = txtName.Text + " " + txtLastname.Text;
+            string infoLogin = txtName.Text;
             isTextboxEmpty();
             isPasswordCorrect();
             //checkEmail();

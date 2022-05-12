@@ -19,7 +19,7 @@
             <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
             <StackLayout  Orientation="Horizontal">
                 <CheckBox IsChecked="False" Color="#668E39" />
-                
+
                 <Label Text="Remember me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
                 <Label Text="Forgot Password" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />

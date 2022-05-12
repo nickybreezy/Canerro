@@ -27,30 +27,29 @@ namespace UserApplicatie.Views
         {
             Navigation.PushAsync(new RegisterPage());
         }
-        public void readDatabase()
+        public async Task<List<myDatabaseRecord>> GetAllUsers()
         {
-            BindingContext = this;
-            var collection = firebaseClient
-                .Child("Data_users")
-                .AsObservable<myDatabaseRecord>()
-                .Subscribe((dbevent) =>
-                {
-                    if (dbevent.Object != null)
-                    {
-                        DatabaseItems.Add(dbevent.Object);
-                    }
-                });
+            return (await firebaseClient
+              .Child("Users")
+              .OnceAsync<myDatabaseRecord>()).Select(item => new myDatabaseRecord
+              {
+                  UserName = item.Object.UserName
+              }).ToList();
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            int itemsInDatabase = DatabaseItems.Count();
-            
-            if (RegisterPage.loginInfo.Contains("h"))
+            var allPersons = await GetAllUsers();
+            Console.WriteLine(allPersons);
+            if (RegisterPage.loginInfo.Contains(txtUsername.Text))
             {
                 DisplayAlert("Inloggen mislukt", "Username of Password is incorrect", "Ok");
+                Navigation.PushAsync(new AboutPage());
             }
             //if (txtUsername.Text == "Tim" && txtPassword.Text == "test")
             //{
+
+
+
             //    Navigation.PushAsync(new AboutPage());
             //}
             //else
