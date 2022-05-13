@@ -16,46 +16,30 @@ namespace UserApplicatie.Views
     {
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
+        FirebaseHelper fh = new FirebaseHelper();
 
         public LoginPage()
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
-
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegisterPage());
         }
-        public async Task<List<myDatabaseRecord>> GetAllUsers()
-        {
-            return (await firebaseClient
-              .Child("Users")
-              .OnceAsync<myDatabaseRecord>()).Select(item => new myDatabaseRecord
-              {
-                  UserName = item.Object.UserName
-              }).ToList();
-        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var allPersons = await GetAllUsers();
-            Console.WriteLine(allPersons);
-            if (RegisterPage.loginInfo.Contains(txtUsername.Text))
+            string[] allPersonsNames = await fh.GetAllPersonsNames();
+            string[] allPersonsPasswords = await fh.GetAllPersonsPasswords();
+            if (allPersonsNames.Contains(txtUsername.Text) && allPersonsPasswords.Contains(txtPassword.Text))
             {
-                DisplayAlert("Inloggen mislukt", "Username of Password is incorrect", "Ok");
-                Navigation.PushAsync(new AboutPage());
+                await Navigation.PushAsync(new AboutPage());
             }
-            //if (txtUsername.Text == "Tim" && txtPassword.Text == "test")
-            //{
-
-
-
-            //    Navigation.PushAsync(new AboutPage());
-            //}
-            //else
-            //{
-            //    DisplayAlert("Inloggen mislukt", "Username of Password is incorrect", "Ok");
-            //}
+            else
+            {
+                await DisplayAlert("Inloggen mislukt", "Username of Password is incorrect", "Ok");
+            }
         }
     }
 }

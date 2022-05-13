@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UserApplicatie.Views.AboutPage"
+             xmlns:vm="clr-namespace:UserApplicatie.ViewModels"
+             Title="Home">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">white</Color>
+            <Color x:Key="Buttons">#F6FF97</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label 
+                    Text="Your total points" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                </Label>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <CollectionView ItemsSource="{Binding DatabaseItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding UserName}" TextColor="#668E31" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Title"/>
+                                <Image x:Name="QR_image" Source="canerro_QR.png" VerticalOptions="Center" HeightRequest="200" IsVisible="true"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

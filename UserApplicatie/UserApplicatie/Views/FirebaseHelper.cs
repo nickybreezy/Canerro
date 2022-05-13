@@ -10,28 +10,25 @@ namespace UserApplicatie.Views
 {
     public class FirebaseHelper
     {
-        FirebaseClient firebase;
+        FirebaseClient firebaseClient;
 
-        FirebaseHelper()
+        public FirebaseHelper()
         {
-            firebase = new FirebaseClient("https://fir-databasedemo-62a72.firebaseio.com/");
+            firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         }
-
-        public async Task AddUser(string UserName)
+        public async Task<string[]> GetAllPersonsNames()
         {
-            await firebase
-              .Child("Users")
-              .PostAsync(new myDatabaseRecord() { UserName = UserName});
+            return (await firebaseClient
+              .Child("Data_users")
+              .OnceAsync<myDatabaseRecord>()).Select(item =>
+              item.Object.UserName).ToArray();
         }
-
-        public async Task<List<myDatabaseRecord>> GetAllUsers()
+        public async Task<string[]> GetAllPersonsPasswords()
         {
-            return (await firebase
-              .Child("Users")
-              .OnceAsync<myDatabaseRecord>()).Select(item => new myDatabaseRecord
-              {
-                  UserName = item.Object.UserName
-              }).ToList();
+            return (await firebaseClient
+              .Child("Data_users")
+              .OnceAsync<myDatabaseRecord>()).Select(item =>
+              item.Object.UserPassword).ToArray();
         }
     }
 }

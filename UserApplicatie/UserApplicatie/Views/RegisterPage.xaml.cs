@@ -17,8 +17,6 @@ namespace UserApplicatie
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         public bool isUserSignedIn = false;
 
-        public static List<string> loginInfo = new List<string>();
-        public List<string> registerInfo = new List<string>();
         
         public RegisterPage()
         {
@@ -30,40 +28,32 @@ namespace UserApplicatie
         {
             Navigation.PushAsync(new LoginPage());
         }
-        // michel
+        
         private void Button_Clicked2(object sender, EventArgs e)
         {
-            string infoLogin = txtName.Text;
             isTextboxEmpty();
             isPasswordCorrect();
+            checkEmail();
             //checkEmail();
-            if (!isTextboxEmpty() || !isPasswordCorrect())
+            if (!isTextboxEmpty() || !isPasswordCorrect() || checkEmail() != null)
             {
                 Navigation.PushAsync(new AboutPage());
                 isUserSignedIn = true;
-                firebaseClient.Child("Data_users").PostAsync(new myDatabaseRecord { UserName = infoLogin });
-                loginInfo.Add(infoLogin);
+                firebaseClient.Child("Data_users").PostAsync(new myDatabaseRecord { UserName = txtName.Text, UserPassword = txtPassword.Text });
             }
         }
-        public bool isRegisterd()
+        public string checkEmail()
         {
-            string infoLogin = txtName.Text + " " + txtPassword.Text;
-            string infoRegister = txtName.Text + " " + txtLastname.Text + " " + txtEmail.Text + " " + txtPassword.Text + " " + txtRepeatPassword.Text;
-            if (infoLogin.Contains(infoRegister))
-            {
-                return true;
+            if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))       // hier mogelijk nog meer
+            {                                                                       // validatie implementeren
+                txtEmail.Text = "";
+                txtEmail.Placeholder = "Incorrect email";
+                txtEmail.Opacity = 0.9;
+                txtEmail.PlaceholderColor = Color.Red;
+                return null;
             }
-            return false;
-            
+            return txtEmail.Text;
         }
-        //public string checkEmail()
-        //{
-        //    if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".") || txtEmail.Text == null)       // hier mogelijk nog meer
-        //    {                                                                                                // validatie implementeren
-        //        txtEmail.Text = "incorrect email";
-        //    }
-        //    return txtEmail.Text;
-        //}
         public bool isPasswordCorrect()
         {
             if (txtPassword.Text != txtRepeatPassword.Text || txtRepeatPassword.Text == null)
