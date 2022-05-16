@@ -31,18 +31,33 @@ namespace UserApplicatie.Views
                     }
                 });
         }
-        int score= 0;
+        int score= 1;
         
         public void btnIncrement_Clicked(object sender, EventArgs e)
         {
-            
-            score++;
             labelTotal.Text = score.ToString();
             if (score >= 10)
             {
+                btnIncrement.IsVisible = false;
                 QR_image_test.IsVisible = true;
+                btnResetQr_test.IsVisible = true;
+                lblWon.IsVisible = true;
+                score = 10;
             }
-            Console.WriteLine("test");
+            else
+            {
+                score++;
+            }
+        }
+        private void btnResetQr_test_Clicked(object sender, EventArgs e)
+        {
+            score = 1;
+            labelTotal.Text = "";
+            btnIncrement.IsVisible = true;
+            lblWon.IsVisible = false;
+            QR_image_test.IsVisible = false;
+            btnResetQr_test.IsVisible = false;
+
         }
     }
 }

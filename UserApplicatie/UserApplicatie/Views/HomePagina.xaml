@@ -26,20 +26,24 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <Image x:Name="QR_image_test" Source="canerro_QR.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
                 <Label 
-                    x:Name ="labelTotal" Text="Your total points" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                    
+                    x:Name ="labelTotal" Text="" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                 </Label>
-                
+
             </StackLayout>
-        </StackLayout>
-        
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <CollectionView ItemsSource="{Binding DatabaseItems}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Button    
+            <Button    
+                                    x:Name= "btnResetQr_test"
+                                    VerticalOptions="Center"
+                                    Text="resetQr"
+                                    TextColor="Gray"
+                                    BackgroundColor="#F6FF97"
+                                    BorderWidth="1.5"
+                                    CornerRadius="30"
+                                    Margin="15"
+                                    Clicked="btnResetQr_test_Clicked"
+                                    IsVisible="false"
+                                />
+            
+            <Button    
                                     x:Name= "btnIncrement"
                                     VerticalOptions="Center"
                                     Text="+1 ingeleverd"
@@ -50,6 +54,17 @@
                                     Margin="15"
                                     Clicked="btnIncrement_Clicked"
                                 />
+            <Label x:Name ="lblWon" Text="Je hebt een consumptie voor 1 gratis bier verdient.   Ga naar de bar om je consumptie te innen" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Body" IsVisible="false"></Label>
+        </StackLayout>
+        
+
+        <ScrollView Grid.Row="1">
+            <StackLayout BackgroundColor="{StaticResource Accent}" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <CollectionView ItemsSource="{Binding DatabaseItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+
                                 
                                 
                                 
