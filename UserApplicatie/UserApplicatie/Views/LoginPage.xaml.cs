@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UserApplicatie.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.TizenSpecific;
+using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace UserApplicatie.Views
@@ -17,12 +19,13 @@ namespace UserApplicatie.Views
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         FirebaseHelper fh = new FirebaseHelper();
-
+       
         public LoginPage()
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+        
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegisterPage());

@@ -8,13 +8,14 @@
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">white</Color>
             <Color x:Key="Buttons">#F6FF97</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
+
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,19 +24,35 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image x:Name="QR_image_test" Source="canerro_QR.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
                 <Label 
-                    Text="Your total points" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                    x:Name ="labelTotal" Text="Your total points" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                    
                 </Label>
+                
             </StackLayout>
         </StackLayout>
+        
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <CollectionView ItemsSource="{Binding DatabaseItems}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Label Text="{Binding UserName}" TextColor="#668E31" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Title"/>
-                                <Image x:Name="QR_image" Source="canerro_QR.png" VerticalOptions="Center" HeightRequest="200" IsVisible="true"/>
+                                <Button    
+                                    x:Name= "btnIncrement"
+                                    VerticalOptions="Center"
+                                    Text="+1 ingeleverd"
+                                    TextColor="Gray"
+                                    BackgroundColor="#F6FF97"
+                                    BorderWidth="1.5"
+                                    CornerRadius="30"
+                                    Margin="15"
+                                    Clicked="btnIncrement_Clicked"
+                                />
+                                
+                                
+                                
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

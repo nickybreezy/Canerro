@@ -14,5 +14,6 @@ namespace UserApplicatie.ViewModels
         }
 
         public ICommand OpenWebCommand { get; }
+
     }
 }

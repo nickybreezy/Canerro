@@ -17,13 +17,8 @@
             </ContentView>
             <Entry x:Name="txtUsername" Placeholder="Username" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
             <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" TextColor="Gray" PlaceholderColor="LightGray" Margin="5"></Entry>
-            <!--<StackLayout  Orientation="Horizontal">
-                <Label Text="Forgot Password" TextColor="#668E39" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedForgotPassword"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>-->
+            <StackLayout  Orientation="Horizontal">
+            </StackLayout>
 
             <Button    
                 VerticalOptions="Center"

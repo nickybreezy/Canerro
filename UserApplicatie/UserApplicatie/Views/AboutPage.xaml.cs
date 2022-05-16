@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,15 +13,12 @@ namespace UserApplicatie.Views
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
 
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
-        int totalTrownAway = 0;
-        bool IsStartVisible = false;
 
         public AboutPage()
         {
             InitializeComponent();
             BindingContext = this;
-
+            
             var collection = firebaseClient
                 .Child("Data_users")
                 .AsObservable<myDatabaseRecord>()
@@ -30,13 +28,21 @@ namespace UserApplicatie.Views
                     {
                         DatabaseItems.Clear();
                         DatabaseItems.Add(dbevent.Object);
-                        totalTrownAway++;
-                        if (totalTrownAway > 0)
-                        {
-                            IsStartVisible = true;
-                        }
                     }
                 });
+        }
+        int score= 0;
+        
+        public void btnIncrement_Clicked(object sender, EventArgs e)
+        {
+            
+            score++;
+            labelTotal.Text = score.ToString();
+            if (score >= 10)
+            {
+                QR_image_test.IsVisible = true;
+            }
+            Console.WriteLine("test");
         }
     }
 }
