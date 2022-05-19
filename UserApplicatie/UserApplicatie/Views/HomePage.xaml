@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UserApplicatie.Views.HomePage">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+            x:Class="UserApplicatie.Views.HomePage">
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Inleveren" 
                xmlns="http://xamarin.com/schemas/2014/forms"
@@ -78,13 +78,16 @@
             </ScrollView>
         </Grid>
     </ContentPage>
-    <ContentPage Title="Map" 
+    <ContentPage Title="Map" >
+        <StackLayout>
+            <maps:Map IsShowingUser="True"/>
+            
+
+        </StackLayout>
+
+    </ContentPage> 
+
+
                  
-                 
-                 
-                 
-                 
-                 
-                 
-                 />
+    
 </TabbedPage>

@@ -16,8 +16,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -64,8 +62,6 @@
                     Clicked="btnIncrement_Clicked"
             />
         </StackLayout>
-
-
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
 
