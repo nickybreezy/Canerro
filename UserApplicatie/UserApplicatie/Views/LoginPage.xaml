@@ -6,11 +6,13 @@
              mc:Ignorable="d"
              x:Class="UserApplicatie.Views.LoginPage"
              Shell.NavBarIsVisible="False"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    
 
 
     <ContentPage.Content>
-        <StackLayout Padding="40" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="White" Padding="40" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
 
             <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
                 <Image Source="CanerroLogo2.png" VerticalOptions="Center" HeightRequest="200" />

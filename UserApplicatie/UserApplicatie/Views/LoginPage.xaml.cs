@@ -37,7 +37,7 @@ namespace UserApplicatie.Views
             string[] allPersonsPasswords = await fh.GetAllPersonsPasswords();
             if (allPersonsNames.Contains(txtUsername.Text) && allPersonsPasswords.Contains(txtPassword.Text))
             {
-                await Navigation.PushAsync(new AboutPage());
+                await Navigation.PushAsync(new HomePage());
             }
             else
             {
