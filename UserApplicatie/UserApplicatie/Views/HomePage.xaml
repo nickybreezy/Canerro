@@ -39,10 +39,21 @@
                 <Label 
                     Text="" TextColor="#668E39" FontAttributes="Bold" VerticalOptions="Center"  FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                 </Label>
-                <Image x:Name="UserProfilePicture" Source="userProfilePicture.png" VerticalOptions="Center" HeightRequest="200"/>
+                <Image x:Name="UserProfilePicture" Source="userProfilePicture.png" VerticalOptions="Center" HeightRequest="180"/>
                 <Label 
                     x:Name = "nameUser" Text="welcome back " TextColor="#668E39" FontAttributes="Bold" VerticalOptions="Center"  FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                 </Label>
+                <Image x:Name="image0" Source="flesje010.png" VerticalOptions="Center" HeightRequest="100" IsVisible="true" />
+                <Image x:Name="image1" Source="flesje110.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image2" Source="flesje210.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image3" Source="flesje310.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image4" Source="flesje410.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image5" Source="flesje510.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image6" Source="flesje610.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image7" Source="flesje710.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image8" Source="flesje810.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image9" Source="flesje910.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
+                <Image x:Name="image10" Source="flesje1010.png" VerticalOptions="Center" HeightRequest="100" IsVisible="false"/>
                 <Label 
                     x:Name ="labelTotal" Text="" TextColor="#668E39" FontAttributes="Bold" VerticalOptions="Center"  FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                 </Label>
@@ -57,7 +68,7 @@
                 IsVisible="false">
                 </Label>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image x:Name="QR_image_test" Source="My_Rating_Page.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
+                    <Image x:Name="QR_image_test" Source="MyRatingPage.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
                 </StackLayout>
                 <Button    
                     x:Name= "btnResetQr_test"

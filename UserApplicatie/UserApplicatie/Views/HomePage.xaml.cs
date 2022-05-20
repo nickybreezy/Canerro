@@ -48,6 +48,8 @@ namespace UserApplicatie.Views
             lblWon.IsVisible = false;
             QR_image_test.IsVisible = false;
             btnResetQr_test.IsVisible = false;
+            image10.IsVisible = false;
+            image0.IsVisible = true;
         }
 
         private void btnIncrement_Clicked(object sender, EventArgs e)
@@ -66,6 +68,152 @@ namespace UserApplicatie.Views
             {
                 score++;
                 labelTotal.Text = score.ToString() + " / 10";
+            }
+            switch (score)
+            {
+                case 0:
+                    image0.IsVisible = true;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 1:
+                    image0.IsVisible = false;
+                    image1.IsVisible = true;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 2:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = true;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 3:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = true;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 4:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = true;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 5:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = true;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 6:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = true;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 7:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = true;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 8:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = true;
+                    image9.IsVisible = false;
+                    image10.IsVisible = false;
+                    break;
+                case 9:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = true;
+                    image10.IsVisible = false;
+                    break;
+                case 10:
+                    image0.IsVisible = false;
+                    image1.IsVisible = false;
+                    image2.IsVisible = false;
+                    image3.IsVisible = false;
+                    image4.IsVisible = false;
+                    image5.IsVisible = false;
+                    image6.IsVisible = false;
+                    image7.IsVisible = false;
+                    image8.IsVisible = false;
+                    image9.IsVisible = false;
+                    image10.IsVisible = true;
+                    break;
             }
         }
 
