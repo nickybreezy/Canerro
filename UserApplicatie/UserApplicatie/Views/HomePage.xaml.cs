@@ -16,14 +16,16 @@ namespace UserApplicatie.Views
     public partial class HomePage : TabbedPage
     {
         public int score = 0;
+        public int points = 0;
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
+        FirebaseHelper fh = new FirebaseHelper();
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         public HomePage()
         {
             InitializeComponent();
             BindingContext = this;
             labelTotal.Text = "0 / 10";
-            foreach(var item in LoginPage.getDatabaseNames())
+            foreach(var item in LoginPage.getDatabaseNamesList())
             {
                 nameUser.Text = $"Welkom terug {item}";
             }
@@ -43,6 +45,7 @@ namespace UserApplicatie.Views
         private void btnResetQr_test_Clicked(object sender, EventArgs e)
         {
             score = 0;
+            points = 0;
             labelTotal.Text = "0 / 10";
             btnIncrement.IsVisible = true;
             lblWon.IsVisible = false;
@@ -51,25 +54,31 @@ namespace UserApplicatie.Views
             image10.IsVisible = false;
             image0.IsVisible = true;
         }
-
+        
         private void btnIncrement_Clicked(object sender, EventArgs e)
         {
-            labelTotal.Text = score.ToString();
-            if (score + 1 >= 10)
+            points++;
+            if (points >= 10)
             {
                 btnIncrement.IsVisible = false;
                 QR_image_test.IsVisible = true;
                 btnResetQr_test.IsVisible = true;
                 lblWon.IsVisible = true;
-                labelTotal.Text = (score + 1).ToString() + " / 10";
-                score = 10;
+                labelTotal.Text = "10 / 10";
             }
             else
             {
+                labelTotal.Text = (score+1).ToString() + " / 10";
                 score++;
-                labelTotal.Text = score.ToString() + " / 10";
+                firebaseClient.Child("Data_users").Child("-N2BHD0i8NwQ-n_FVqZx").PutAsync(new myDatabaseRecord 
+                { 
+                    UserName = LoginPage.getDatabaseNames(), 
+                    UserPassword = LoginPage.getDatabasePassword(), 
+                    userPoints = score+1
+                });
+                
             }
-            switch (score)
+            switch (points)
             {
                 case 0:
                     image0.IsVisible = true;

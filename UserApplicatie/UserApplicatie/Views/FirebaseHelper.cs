@@ -30,5 +30,12 @@ namespace UserApplicatie.Views
               .OnceAsync<myDatabaseRecord>()).Select(item =>
               item.Object.UserPassword).ToArray();
         }
+        public async Task<int[]> GetAllPersonsPoints()
+        {
+            return (await firebaseClient
+              .Child("Data_users")
+              .OnceAsync<myDatabaseRecord>()).Select(item =>
+              item.Object.userPoints).ToArray();
+        }
     }
 }

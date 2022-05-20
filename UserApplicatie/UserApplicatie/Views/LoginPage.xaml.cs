@@ -20,25 +20,37 @@ namespace UserApplicatie.Views
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         FirebaseHelper fh = new FirebaseHelper();
         public static List<string> DatabaseNames = new List<string>();
+        public static string DatabaseName;
+        public static string DatabasePassword;
         public LoginPage()
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
-        
+        public static List<string> getDatabaseNamesList()
+        {
+            return DatabaseNames;
+        }
+        public static string getDatabaseNames()
+        {
+            return DatabaseName;
+        }
+        public static string getDatabasePassword()
+        {
+            return DatabasePassword;
+        }
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegisterPage());
         }
-        public static List<string> getDatabaseNames()
-        {
-            return DatabaseNames;
-        }
+        
         private async void Button_Clicked(object sender, EventArgs e)
         {
             string[] allPersonsNames = await fh.GetAllPersonsNames();
             string[] allPersonsPasswords = await fh.GetAllPersonsPasswords();
-            DatabaseNames.Add(txtUsername.Text);
+            DatabaseNames.Add(txtUsername.Text);        // de implementatie van deze naam op de homepagina kan veranderd worden naar string variabele.
+            DatabaseName = txtUsername.Text;
+            DatabasePassword = txtPassword.Text;
             if (allPersonsNames.Contains(txtUsername.Text) && allPersonsPasswords.Contains(txtPassword.Text))
             {
                 await Navigation.PushAsync(new HomePage());

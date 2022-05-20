@@ -16,7 +16,7 @@ namespace UserApplicatie
     {
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         public bool isUserSignedIn = false;
-
+        
         
         public RegisterPage()
         {

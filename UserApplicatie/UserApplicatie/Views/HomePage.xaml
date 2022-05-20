@@ -104,13 +104,14 @@
             </ScrollView>
         </Grid>
     </ContentPage>
-    <ContentPage Title="Map" >
+    
+    <ContentPage Title="Map">
         <StackLayout>
             <maps:Map IsShowingUser="True"/>
         </StackLayout>
 
     </ContentPage>
-    <ContentPage Title="Waar staan wij?">
+    <ContentPage Title="Locaties">
 
         <StackLayout Padding="5,10">
             <Label TextColor="Gray" FontSize = "Title" Text="Waar vind u de prullenbak?" />
