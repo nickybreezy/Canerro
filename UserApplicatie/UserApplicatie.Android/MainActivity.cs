@@ -30,7 +30,7 @@ namespace UserApplicatie.Droid
                 }
                 else
                 {
-                    // Permissions already granted - display a message.
+                    // Permissions already granted. 
                 }
             }
         }
@@ -42,6 +42,8 @@ namespace UserApplicatie.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App());
+            Window.SetStatusBarColor(Android.Graphics.Color.Argb(255, 102, 142, 57));
+            
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -49,11 +51,11 @@ namespace UserApplicatie.Droid
             {
                 if ((grantResults.Length == 1) && (grantResults[0] == (int)Permission.Granted))
                 {
-                    // Permissions granted - display a message.
+                    // Permissions granted - Hier misschien een display show plaatsen (niet nodig).
                 }
                 else
                 {
-                    // Permissions denied - display a message.
+                    // Permissions denied - Hier misschien een display show plaatsen (niet nodig).
                 }
             }
             else

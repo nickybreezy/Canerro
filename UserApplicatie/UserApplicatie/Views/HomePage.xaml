@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-            x:Class="UserApplicatie.Views.HomePage">
+            x:Class="UserApplicatie.Views.HomePage"
+            BarBackgroundColor="#668E39">
+            
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Inleveren" 
+                 
                xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 
@@ -81,13 +84,35 @@
     <ContentPage Title="Map" >
         <StackLayout>
             <maps:Map IsShowingUser="True"/>
-            
-
         </StackLayout>
 
-    </ContentPage> 
+    </ContentPage>
+    <ContentPage Title="Waar staan wij?">
 
+        <StackLayout Padding="5,10">
+            <Label TextColor="Gray" FontSize = "Title" Text="Waar vind u de prullenbak?" />
+            <Label TextColor="Gray" FontSize = "Title" Text="" />
+            <Label TextColor="Gray" FontSize = "Subtitle" Text="Amsterdam" />
+            <Image Source="festival1.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
+            <Label TextColor="Gray" FontSize = "Subtitle" Text="Carnaval Eindhoven" />
+            <Image Source="festival2.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
+            <Label TextColor="Gray" FontSize = "Subtitle" Text="Koningsdag Eindhoven" />
+            <Image Source="festival3.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Over ons">
 
-                 
+        <StackLayout Padding="5,10">
+            <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Center" Text="Zeg vaarwel tegen de oude manier van weggooien of verwisselen van flesje  en blikje vooral op festival:" />
+            <Image Source="afvaloud.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
+            <Image Source="sta.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
+            
+            <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Start" Text="Wij zijn een groep van studenten die een festivals prullenbak hebben gemaakt. Die afval automatisch sorteren, ook het statiegeld berekenen. Bij elke tien flesjes of blikjes krijg je er één gratis. U kunt die statiegeld bij aller supermarkt wisselen naar een drankje naar u keuze.
+            " />        
+        </StackLayout>
+    </ContentPage>
     
+
+
+
 </TabbedPage>

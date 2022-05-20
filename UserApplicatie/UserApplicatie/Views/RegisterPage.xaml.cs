@@ -37,7 +37,7 @@ namespace UserApplicatie
             //checkEmail();
             if (!isTextboxEmpty() || !isPasswordCorrect() || checkEmail() != null)
             {
-                Navigation.PushAsync(new AboutPage());
+                Navigation.PushAsync(new HomePage());
                 isUserSignedIn = true;
                 firebaseClient.Child("Data_users").PostAsync(new myDatabaseRecord { UserName = txtName.Text, UserPassword = txtPassword.Text });
             }
