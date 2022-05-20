@@ -2,7 +2,10 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
             x:Class="UserApplicatie.Views.HomePage"
-            BarBackgroundColor="#668E39">
+            BarBackgroundColor="#668E39"
+            SelectedTabColor="White"
+            Shell.NavBarIsVisible="False"
+            NavigationPage.HasNavigationBar="False">
             
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Inleveren" 
@@ -32,9 +35,14 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image x:Name="QR_image_test" Source="My_Rating_Page.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
-                </StackLayout>
+                
+                <Label 
+                    Text="" TextColor="#668E39" FontAttributes="Bold" VerticalOptions="Center"  FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                </Label>
+                <Image x:Name="UserProfilePicture" Source="userProfilePicture.png" VerticalOptions="Center" HeightRequest="200"/>
+                <Label 
+                    x:Name = "nameUser" Text="welcome back " TextColor="#668E39" FontAttributes="Bold" VerticalOptions="Center"  FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                </Label>
                 <Label 
                     x:Name ="labelTotal" Text="" TextColor="#668E39" FontAttributes="Bold" VerticalOptions="Center"  FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                 </Label>
@@ -48,6 +56,9 @@
                 FontSize="Body" 
                 IsVisible="false">
                 </Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image x:Name="QR_image_test" Source="My_Rating_Page.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
+                </StackLayout>
                 <Button    
                     x:Name= "btnResetQr_test"
                     VerticalOptions="Center"
@@ -71,6 +82,7 @@
                     Margin="15"
                     Clicked="btnIncrement_Clicked"
             />
+                
             </StackLayout>
 
 

@@ -19,7 +19,7 @@ namespace UserApplicatie.Views
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
         FirebaseHelper fh = new FirebaseHelper();
-       
+        public static List<string> DatabaseNames = new List<string>();
         public LoginPage()
         {
             InitializeComponent();
@@ -30,11 +30,15 @@ namespace UserApplicatie.Views
         {
             Navigation.PushAsync(new RegisterPage());
         }
-
+        public static List<string> getDatabaseNames()
+        {
+            return DatabaseNames;
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
             string[] allPersonsNames = await fh.GetAllPersonsNames();
             string[] allPersonsPasswords = await fh.GetAllPersonsPasswords();
+            DatabaseNames.Add(txtUsername.Text);
             if (allPersonsNames.Contains(txtUsername.Text) && allPersonsPasswords.Contains(txtPassword.Text))
             {
                 await Navigation.PushAsync(new HomePage());

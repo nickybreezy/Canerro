@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using Firebase.Database.Query;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,10 @@ namespace UserApplicatie.Views
             InitializeComponent();
             BindingContext = this;
             labelTotal.Text = "0 / 10";
+            foreach(var item in LoginPage.getDatabaseNames())
+            {
+                nameUser.Text = $"Welkom terug {item}";
+            }
             var collection = firebaseClient
                 .Child("Data_users")
                 .AsObservable<myDatabaseRecord>()
