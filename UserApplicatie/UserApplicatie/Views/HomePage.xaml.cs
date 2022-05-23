@@ -17,6 +17,9 @@ namespace UserApplicatie.Views
     {
         public int score = 0;
         public int points = 0;
+        public bool qrImage1Shown = false;
+        public bool qrImage2Shown = false;
+        public bool qrImage3Shown = false;
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
         FirebaseHelper fh = new FirebaseHelper();
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
@@ -45,11 +48,11 @@ namespace UserApplicatie.Views
         private void btnResetQr_test_Clicked(object sender, EventArgs e)
         {
             score = 0;
-            points = 0;
+            //points = 0;
             labelTotal.Text = "0 / 10";
             btnIncrement.IsVisible = true;
             lblWon.IsVisible = false;
-            QR_image_test.IsVisible = false;
+            
             btnResetQr_test.IsVisible = false;
             image10.IsVisible = false;
             image0.IsVisible = true;
@@ -58,13 +61,34 @@ namespace UserApplicatie.Views
         private void btnIncrement_Clicked(object sender, EventArgs e)
         {
             points++;
-            if (points >= 10)
+            if (points >= 10 && qrImage1Shown == false)
             {
-                btnIncrement.IsVisible = false;
+                lblGenoegIngeleverd.IsVisible = false;
+                qrImage1Shown = true;
                 QR_image_test.IsVisible = true;
+                btnIncrement.IsVisible = false;
                 btnResetQr_test.IsVisible = true;
                 lblWon.IsVisible = true;
                 labelTotal.Text = "10 / 10";
+            }
+            else if (points >= 20 && qrImage2Shown == false)
+            {
+                qrImage2Shown = true;
+                QR_image_test2.IsVisible = true;
+                btnIncrement.IsVisible = false;
+                btnResetQr_test.IsVisible = true;
+                lblWon.IsVisible = true;
+                labelTotal.Text = "10 / 10";
+            }
+            else if (points >= 30 && qrImage3Shown == false)
+            {
+                qrImage3Shown = true;
+                QR_image_test3.IsVisible = true;
+                btnIncrement.IsVisible = false;
+                btnResetQr_test.IsVisible = true;
+                lblWon.IsVisible = true;
+                labelTotal.Text = "10 / 10";
+                lblWon.Text = "Je hebt het maximaal aantal flesjes ingeleverd. \n Ga naar de bar om je coupons te innen.";
             }
             else
             {
@@ -74,7 +98,7 @@ namespace UserApplicatie.Views
                 { 
                     UserName = LoginPage.getDatabaseNames(), 
                     UserPassword = LoginPage.getDatabasePassword(), 
-                    userPoints = score+1
+                    userPoints = points
                 });
                 
             }

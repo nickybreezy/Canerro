@@ -22,7 +22,7 @@
         </ContentPage.BindingContext>
         <ContentPage.Resources>
             <ResourceDictionary>
-                <Color x:Key="Accent">white</Color>
+                <Color x:Key="  Accent">white</Color>
                 <Color x:Key="Buttons">#F6FF97</Color>
             </ResourceDictionary>
         </ContentPage.Resources>
@@ -67,13 +67,11 @@
                 FontSize="Body" 
                 IsVisible="false">
                 </Label>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image x:Name="QR_image_test" Source="MyRatingPage.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
-                </StackLayout>
+                
                 <Button    
                     x:Name= "btnResetQr_test"
                     VerticalOptions="Center"
-                    Text="resetQr"
+                    Text="reset Qr"
                     TextColor="Gray"
                     BackgroundColor="#F6FF97"
                     BorderWidth="1.5"
@@ -104,15 +102,22 @@
             </ScrollView>
         </Grid>
     </ContentPage>
-    
-    <ContentPage Title="Map">
+    <ContentPage Title="qr codes" BackgroundColor="White">
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label x:Name = "lblGenoegIngeleverd" TextColor="#668E39" FontSize = "Title" Text="Je hebt nog niet genoeg flesjes ingeleverd" HorizontalOptions="Center" HorizontalTextAlignment="Center" IsVisible="true"/>
+            <Image x:Name="QR_image_test" Source="MyRatingPage.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
+            <Image x:Name="QR_image_test2" Source="MyRatingPage2.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
+            <Image x:Name="QR_image_test3" Source="MyRatingPage3.png" VerticalOptions="Center" HeightRequest="200" IsVisible="false"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="locaties">
         <StackLayout>
             <maps:Map IsShowingUser="True"/>
         </StackLayout>
-
     </ContentPage>
-    <ContentPage Title="Locaties">
 
+    <ContentPage Title="over ons">
+        <ScrollView>
         <StackLayout Padding="5,10">
             <Label TextColor="Gray" FontSize = "Title" Text="Waar vind u de prullenbak?" />
             <Label TextColor="Gray" FontSize = "Title" Text="" />
@@ -122,20 +127,20 @@
             <Image Source="festival2.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
             <Label TextColor="Gray" FontSize = "Subtitle" Text="Koningsdag Eindhoven" />
             <Image Source="festival3.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
-        </StackLayout>
-    </ContentPage>
-    <ContentPage Title="Over ons">
+            <Label TextColor="Gray" FontSize = "Title" Text="" />
+            <Label TextColor="Gray" FontSize = "Title" Text="" />
 
-        <StackLayout Padding="5,10">
-            <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Center" Text="Zeg vaarwel tegen de oude manier van weggooien of verwisselen van flesje  en blikje vooral op festival:" />
-            <Image Source="afvaloud.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
-            <Image Source="sta.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
-            
+                <Label TextColor="Gray" FontSize = "Title" Text="Onze missie" />
+                <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Start" Text="Zeg vaarwel tegen de oude manier van weggooien of verwisselen van flesje  en blikje vooral op festival:" />
+                <Image Source="afvaloud.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
+                <Image Source="sta.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
+
             <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Start" Text="Wij zijn een groep van studenten die een festivals prullenbak hebben gemaakt. Die afval automatisch sorteren, ook het statiegeld berekenen. Bij elke tien flesjes of blikjes krijg je er één gratis. U kunt die statiegeld bij aller supermarkt wisselen naar een drankje naar u keuze.
-            " />        
+            " />
         </StackLayout>
+        </ScrollView>
     </ContentPage>
-    
+
 
 
 
