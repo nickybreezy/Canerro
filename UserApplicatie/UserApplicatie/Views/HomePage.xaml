@@ -116,28 +116,27 @@
         </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="over ons">
+    <ContentPage Title="over ons" BackgroundColor="White">
         <ScrollView>
         <StackLayout Padding="5,10">
-            <Label TextColor="Gray" FontSize = "Title" Text="Waar vind u de prullenbak?" />
-            <Label TextColor="Gray" FontSize = "Title" Text="" />
-            <Label TextColor="Gray" FontSize = "Subtitle" Text="Amsterdam" />
-            <Image Source="festival1.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
-            <Label TextColor="Gray" FontSize = "Subtitle" Text="Carnaval Eindhoven" />
-            <Image Source="festival2.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
-            <Label TextColor="Gray" FontSize = "Subtitle" Text="Koningsdag Eindhoven" />
-            <Image Source="festival3.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
-            <Label TextColor="Gray" FontSize = "Title" Text="" />
-            <Label TextColor="Gray" FontSize = "Title" Text="" />
-
-                <Label TextColor="Gray" FontSize = "Title" Text="Onze missie" />
-                <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Start" Text="Zeg vaarwel tegen de oude manier van weggooien of verwisselen van flesje  en blikje vooral op festival:" />
-                <Image Source="afvaloud.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
-                <Image Source="sta.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
-
-            <Label TextColor="Gray" FontSize = "Body" HorizontalTextAlignment="Start" Text="Wij zijn een groep van studenten die een festivals prullenbak hebben gemaakt. Die afval automatisch sorteren, ook het statiegeld berekenen. Bij elke tien flesjes of blikjes krijg je er één gratis. U kunt die statiegeld bij aller supermarkt wisselen naar een drankje naar u keuze.
-            " />
-        </StackLayout>
+                <Label TextColor="#668E39" FontSize = "Title" Text="" />
+                <Label TextColor="#668E39" FontSize = "Title" Text="Waar vind u de prullenbak?" HorizontalTextAlignment="Center" FontAttributes ="Bold" />
+                <Label TextColor="#668E39" FontSize = "Title" Text="" />
+                <Label TextColor="#668E39" FontSize = "Subtitle" Text="Amsterdam" HorizontalTextAlignment="Center" />
+                <Image Source="amsterdam_corners.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
+                <Label TextColor="#668E39" FontSize = "Subtitle" Text="Carnaval Eindhoven" HorizontalTextAlignment="Center" />
+                <Image Source="eindhoven_corners.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
+                <Label TextColor="#668E39" FontSize = "Subtitle" Text="Koningsdag Eindhoven" HorizontalTextAlignment="Center"/>
+                <Image Source="eindhoven_koningsdag_corners.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200"/>
+                <Image Source="green_line.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200" />
+                <Label TextColor="#668E39" FontSize = "Title" Text="Onze missie" HorizontalTextAlignment ="Center" FontAttributes ="Bold"/>
+                <Label TextColor="#668E39" FontSize = "Title" Text="" HorizontalTextAlignment ="Center"/>
+                <Label TextColor="#668E39" FontSize = "Body" HorizontalTextAlignment="Start" Text="Zeg vaarwel tegen de oude manier van weggooien of verwisselen van flesje  en blikje vooral op festival:" />
+                <Image Source="round_images.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200"/>
+                <Label TextColor="#668E39" FontSize = "Body" HorizontalTextAlignment="Start" Text="Wij zijn een groep van studenten die een festivals prullenbak hebben gemaakt. Die afval automatisch sorteren, ook het statiegeld berekenen. Bij elke tien flesjes of blikjes krijg je er één gratis. U kunt die statiegeld bij aller supermarkt wisselen naar een drankje naar u keuze." />
+                <Image Source="CanerroLogo2.png" VerticalOptions="Center" HorizontalOptions="Start" HeightRequest="200" />
+                <Label TextColor="LightGray" FontSize = "Small" HorizontalTextAlignment="Start" Text="Disclaimer: Op de inhoud van de app van Canerro en op het canerro-logo rusten auteursrechten. Niets uit deze app mag worden verveelvoudigd, opgeslagen in een geautomatiseerd gegevensbestand of openbaar worden gemaakt, in enigerlei vorm of wijze, hetzij elektronisch, mechanisch, door fotokopieën, opname of enige andere manier. Dit is alleen toegestaan na voorafgaande schriftelijke toestemming van Canerro. De data in deze app wordt niet gebruikt voor commerciële doeleinden en zal niet gedeeld worden." />
+            </StackLayout>
         </ScrollView>
     </ContentPage>
 

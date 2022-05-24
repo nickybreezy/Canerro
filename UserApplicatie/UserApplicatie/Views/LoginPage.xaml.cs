@@ -27,18 +27,6 @@ namespace UserApplicatie.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
-        public static List<string> getDatabaseNamesList()
-        {
-            return DatabaseNames;
-        }
-        public static string getDatabaseNames()
-        {
-            return DatabaseName;
-        }
-        public static string getDatabasePassword()
-        {
-            return DatabasePassword;
-        }
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegisterPage());

@@ -15,23 +15,24 @@ namespace UserApplicatie.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
+        
         public int score = 0;
         public int points = 0;
+        public int totalPointsDatabase = 0;
         public bool qrImage1Shown = false;
         public bool qrImage2Shown = false;
         public bool qrImage3Shown = false;
         public ObservableCollection<myDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<myDatabaseRecord>();
         FirebaseHelper fh = new FirebaseHelper();
         FirebaseClient firebaseClient = new FirebaseClient("https://prullenbak-database-default-rtdb.firebaseio.com/");
+        
+
         public HomePage()
         {
             InitializeComponent();
             BindingContext = this;
             labelTotal.Text = "0 / 10";
-            foreach(var item in LoginPage.getDatabaseNamesList())
-            {
-                nameUser.Text = $"Welkom terug {item}";
-            }
+            
             var collection = firebaseClient
                 .Child("Data_users")
                 .AsObservable<myDatabaseRecord>()
@@ -45,6 +46,10 @@ namespace UserApplicatie.Views
                 });
         }
 
+        public bool hasMaxVouchers()
+        {
+            return points >= 31 ? true : false;
+        }
         private void btnResetQr_test_Clicked(object sender, EventArgs e)
         {
             score = 0;
@@ -58,8 +63,16 @@ namespace UserApplicatie.Views
             image0.IsVisible = true;
         }
         
-        private void btnIncrement_Clicked(object sender, EventArgs e)
+        private async void btnIncrement_Clicked(object sender, EventArgs e)
         {
+            int[] getPoints = await fh.GetAllPersonsPoints();       
+            foreach (int item in getPoints)
+            {
+                totalPointsDatabase = item;
+                Console.WriteLine(item);
+            }
+            Console.WriteLine(getPoints[1]);
+
             points++;
             if (points >= 10 && qrImage1Shown == false)
             {
@@ -80,7 +93,7 @@ namespace UserApplicatie.Views
                 lblWon.IsVisible = true;
                 labelTotal.Text = "10 / 10";
             }
-            else if (points >= 30 && qrImage3Shown == false)
+            else if (hasMaxVouchers() && qrImage3Shown == false)
             {
                 qrImage3Shown = true;
                 QR_image_test3.IsVisible = true;
@@ -88,19 +101,13 @@ namespace UserApplicatie.Views
                 btnResetQr_test.IsVisible = true;
                 lblWon.IsVisible = true;
                 labelTotal.Text = "10 / 10";
-                lblWon.Text = "Je hebt het maximaal aantal flesjes ingeleverd. \n Ga naar de bar om je coupons te innen.";
+                lblWon.Text = "";
+                await DisplayAlert("Je hebt het maximaal aantal flesjes ingeleverd.", "Ga naar de bar om je coupons te innen.", "Ok");
             }
             else
             {
                 labelTotal.Text = (score+1).ToString() + " / 10";
                 score++;
-                firebaseClient.Child("Data_users").Child("-N2BHD0i8NwQ-n_FVqZx").PutAsync(new myDatabaseRecord 
-                { 
-                    UserName = LoginPage.getDatabaseNames(), 
-                    UserPassword = LoginPage.getDatabasePassword(), 
-                    userPoints = points
-                });
-                
             }
             switch (points)
             {
@@ -118,6 +125,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 1:
+                case 11:
+                case 21:
                     image0.IsVisible = false;
                     image1.IsVisible = true;
                     image2.IsVisible = false;
@@ -131,6 +140,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 2:
+                case 12:
+                case 22:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = true;
@@ -144,6 +155,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 3:
+                case 13:
+                case 23:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -157,6 +170,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 4:
+                case 14:
+                case 24:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -170,6 +185,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 5:
+                case 15:
+                case 25:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -183,6 +200,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 6:
+                case 16:
+                case 26:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -196,6 +215,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 7:
+                case 17:
+                case 27:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -209,6 +230,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 8:
+                case 18:
+                case 28:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -222,6 +245,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 9:
+                case 19:
+                case 29:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
@@ -235,6 +260,8 @@ namespace UserApplicatie.Views
                     image10.IsVisible = false;
                     break;
                 case 10:
+                case 20:
+                case 30:
                     image0.IsVisible = false;
                     image1.IsVisible = false;
                     image2.IsVisible = false;
